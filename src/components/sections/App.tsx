@@ -48,7 +48,6 @@ const UserCard = styled.div`
   background-color: #ffffff;
   padding: 10px;
   border-radius: 8px;
-  margin: 0 300px;
   grid-template-columns: 0.8fr 1fr 3fr;
 
   img {
@@ -83,8 +82,8 @@ const Index = () => {
 
   React.useEffect(() => {
     fetchGithub()
-    // 30s to update
-    setInterval(fetchGithub, 30000)
+    // 120s to update
+    setInterval(fetchGithub, 120000)
   }, [])
 
   const fetchGithub = () => {
@@ -110,7 +109,7 @@ const Index = () => {
       <Spacer />
       <Text>Últimos 30 PRs</Text>
       <Spacer />
-      {prCounter.items.map((item) => (
+      {prCounter.items?.map((item) => (
         <>
           <UserCard>
             <img src={item.user.avatar_url} width="100px" />
