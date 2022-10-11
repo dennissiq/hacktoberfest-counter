@@ -43,13 +43,16 @@ const Text = styled.div`
   text-align: center;
 `
 
+const ContainerCard = styled.div`
+  margin: 0 500px;
+`
+
 const UserCard = styled.div`
-  display: grid;
+  display: flex;
   background-color: #ffffff;
   padding: 10px;
+  gap: 10px;
   border-radius: 8px;
-  margin: 0 400px;
-  grid-template-columns: 0.8fr 1fr 3fr;
 
   img {
     border-radius: 8px;
@@ -107,19 +110,20 @@ const Index = () => {
         <a href="https://github.com/dennissiq/hacktoberfest-counter/pulls">hacktoberfest-youse</a>
       </Subtitle>
       <Spacer />
-      <Spacer />
       <Text>Últimos 30 PRs</Text>
       <Spacer />
-      {prCounter.items?.map((item) => (
-        <>
-          <UserCard>
-            <img src={item.user.avatar_url} width="100px" />
-            <p className="title">{item.user.login}:</p>
-            <p>{item.title}</p>
-          </UserCard>
-          <Spacer />
-        </>
-      ))}
+      <ContainerCard>
+        {prCounter.items?.map((item) => (
+          <>
+            <UserCard>
+              <img src={item.user.avatar_url} width="100px" />
+              <p className="title">{item.user.login}:</p>
+              <p>{item.title}</p>
+            </UserCard>
+            <Spacer />
+          </>
+        ))}
+      </ContainerCard>
     </>
   )
 }
