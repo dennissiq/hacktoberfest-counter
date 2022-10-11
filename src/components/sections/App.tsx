@@ -82,13 +82,18 @@ const Index = () => {
   })
 
   React.useEffect(() => {
-    fetch("https://api.github.com/search/issues?q=is:pr%20label:hacktoberfest")
+    fetchGithub()
+    // 30s to update
+    setInterval(fetchGithub, 30000)
+  }, [])
+
+  const fetchGithub = () => {
+    fetch("https://api.github.com/search/issues?q=is:pr%20label:hacktoberfest-youse")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setPrCounter(data)
       })
-  }, [])
+  }
 
   return (
     <>
