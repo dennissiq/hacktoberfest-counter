@@ -48,6 +48,7 @@ const UserCard = styled.div`
   background-color: #ffffff;
   padding: 10px;
   border-radius: 8px;
+  margin: 0 400px;
   grid-template-columns: 0.8fr 1fr 3fr;
 
   img {
